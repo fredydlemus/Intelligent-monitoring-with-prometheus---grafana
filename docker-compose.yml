@@ -18,6 +18,23 @@ services:
     restart: unless-stopped
     networks:
       - monitoring
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECUIRTY_ADMIN_PASSWORD=GrafanaRocks123!
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    networks:
+      - monitoring
 
 networks:
   monitoring:
@@ -25,3 +42,4 @@ networks:
 
 volumes:
   prometheus-data:
+  grafana-data:
