@@ -25,7 +25,7 @@ services:
       - "3000:3000"
     environment:
       - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECUIRTY_ADMIN_PASSWORD=GrafanaRocks123!
+      - GF_SECURITY_ADMIN_PASSWORD=GrafanaRocks123!
       - GF_USERS_ALLOW_SIGN_UP=false
     volumes:
       - ./grafana/provisioning:/etc/grafana/provisioning
