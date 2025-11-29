@@ -12,3 +12,9 @@ scrape_configs:
         labels:
           service: 'prometheus'
           team: 'platform'
+  - job_name: 'grafana'
+    static_configs:
+      - targets: ['grafana:3000']
+        labels:
+          service: 'grafana'
+          team: 'platform'
